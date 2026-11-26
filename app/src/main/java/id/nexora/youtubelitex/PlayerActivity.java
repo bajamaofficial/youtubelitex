@@ -80,14 +80,16 @@ public class PlayerActivity extends Activity {
                 + "</head><body>"
                 + "<iframe id='ytplayer' "
                 + "src='https://www.youtube.com/embed/" + videoId
-                + "?playsinline=1&rel=0&enablejsapi=1&origin=https%3A%2F%2Fwww.youtube.com' "
+                + "?playsinline=1&rel=0&enablejsapi=1&origin=https%3A%2F%2Fid.nexora.youtubelitex' "
                 + "title='YouTube video player' "
                 + "allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share' "
                 + "allowfullscreen "
                 + "referrerpolicy='strict-origin-when-cross-origin'></iframe>"
                 + "</body></html>";
 
-        player.loadDataWithBaseURL("https://www.youtube.com/", html, "text/html", "UTF-8", null);
+        // YouTube requires the embedded-player request to identify this installed app.
+        // The package/application ID is id.nexora.youtubelitex.
+        player.loadDataWithBaseURL("https://id.nexora.youtubelitex/", html, "text/html", "UTF-8", null);
     }
 
     private class PlayerChromeClient extends WebChromeClient {
