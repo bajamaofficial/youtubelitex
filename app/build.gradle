@@ -1,0 +1,28 @@
+plugins {
+    id 'com.android.application'
+}
+
+def apiKey = project.findProperty('YOUTUBE_API_KEY') ?: 'PASTE_YOUTUBE_DATA_API_KEY_HERE'
+
+android {
+    namespace 'id.nexora.youtubelitex'
+    compileSdk 35
+
+    defaultConfig {
+        applicationId 'id.nexora.youtubelitex'
+        minSdk 21
+        targetSdk 35
+        versionCode 4
+        versionName '3.0.1'
+        buildConfigField 'String', 'YOUTUBE_API_KEY', "\"${apiKey}\""
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
